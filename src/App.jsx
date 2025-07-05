@@ -1,45 +1,32 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import React, { useState, useEffect } from "react";
 
-// function App() {
-//   const [count, setCount] = useState(0)
+function App() {
+  const [users, setUsers] = useState([]); // Step 1: Create a state for users
 
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
+  useEffect(() => {
+    // Step 2: Fetch data when component loads
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data); 
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+  }, []); 
 
-// export default App
-
-
-
-import React from 'react'
-
-export const App = () => {
   return (
-    <div>App</div>
-  )
+    <div>
+      <h1>List of Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} - {user.email}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
+
+export default App;
