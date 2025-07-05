@@ -1,7 +1,11 @@
+body {
+    background: #384152;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 40px;
-    color: #2c3e50;
+    color: #fff;
 }
 
 h2 {
@@ -33,17 +37,18 @@ p {
     font-family: Arial, sans-serif;
     max-width: 900px;
     margin: 40px auto;
-    padding: 30px;
+    padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    background-color: #fff;
+    background: #232730;
 }
 
 .user-card {
-    border: 1px solid #dcdcdc;
+    border: 4px double darkblue;
     border-radius: 8px;
     padding: 20px;
+    margin: 0 5px;
     background-color: #fdfdfd;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -51,9 +56,9 @@ p {
     justify-content: space-between;
 }
 
-.user-grid{
-    display: flex; 
-    flex-direction: column;
+.user-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
     gap: 25px;
 }
 
