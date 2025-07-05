@@ -1,0 +1,16 @@
+#card{
+    background-color: aqua;
+    color: rgb(0, 0, 0);
+    margin: 30px ;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid burlywood;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+#container{
+    display: flex;
+    background-color: blue;
+}

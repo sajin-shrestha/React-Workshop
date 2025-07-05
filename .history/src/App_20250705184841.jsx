@@ -1,0 +1,32 @@
+import React, {useEffect, useState} from 'react'
+
+const App = () => {
+  const [users, setUser] = useState([]);
+  useEffect(() =>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response => response.json()))
+    .then((json => 
+      // console.log(json),
+      setUser(json)
+      ))
+  },[])
+  return (
+    <div>
+      <h1>Hello NEpal I am coming</h1>
+      {/* <p>{user.name}</p> */}
+      <ul>
+        {
+          users.map((user)=>(
+            <div key={user.id}>
+            <li key={user.id}>{user.name}</li>
+            <li key={user.id}>{user.email}</li>
+            </div>
+          ))
+        }
+      </ul>
+    
+    </div>
+  )
+}
+
+export default App
