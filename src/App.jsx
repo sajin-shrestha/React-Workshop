@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 function App() {
-  const [users, setUsers] = useState([]); // Step 1: Create a state for users
+  const [users, setUsers] = useState([]); 
 
   useEffect(() => {
-    // Step 2: Fetch data when component loads
+
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => {
