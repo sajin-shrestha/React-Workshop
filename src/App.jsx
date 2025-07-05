@@ -13,7 +13,7 @@ const App = () => {
        .catch((error) => {
          console.error('Error fetching users:', error)
        })
-  },[])   // Empty dependency array means this effect runs once after the initial render
+  },[])   
 
   return (
     <div className="app-container">
