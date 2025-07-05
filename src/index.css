@@ -15,28 +15,29 @@ p {
     color: #000;
 }
 
-.loading-container, .error-container {
+.loading-container,
+.error-container {
     font-family: Arial, sans-serif;
-        padding: 20px;
-        text-align: center;
-        color: #555;
-        background-color: #f0f4f8;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.container{
+.container {
     font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      border: 1px solid #e0e0e0;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      background-color: #fff;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
 }
 
 .user-card {
@@ -50,7 +51,13 @@ p {
     justify-content: space-between;
 }
 
-a{
+.user-grid{
+    display: flex; 
+    flex-direction: column;
+    gap: 25px;
+}
+
+a {
     color: #3498db;
     text-decoration: none;
 }

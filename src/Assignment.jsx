@@ -1,4 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import './index.css';
+// import UserFound from './UserFound';
+// import UserNotFound from './UserNotFound';
+
+const UserFound = ({users}) => {
+  return (
+    <div className='user-grid'>
+    {users.map(user => (
+        <div key={user.id} className='user-card'>
+            <h2>{user.name}</h2>
+            <p>
+                <strong>Username:</strong> {user.username}
+            </p>
+            <p>
+                <strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a>
+            </p>
+            <p>
+                <strong>Phone:</strong> {user.phone}
+            </p>
+            <p>
+                <strong>Website:</strong> <a href={`http://${user.website}`} target="_blank">{user.website}</a>
+            </p>
+        </div>
+    ))}
+</div>
+  )
+}
+
+const UserNotFound = () => {
+    return (
+        <p>No users found.</p>
+    )
+}
 
 function Assignment() {
   const [users, setUsers] = useState([]);
@@ -54,29 +87,7 @@ function Assignment() {
       <h1>
         Limited User Directory (6 Users)
       </h1>
-      {users.length > 0 ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '25px' }}>
-          {users.map(user => (
-            <div key={user.id} className='user-card'>
-              <h2>{user.name}</h2>
-              <p>
-                <strong>Username:</strong> {user.username}
-              </p>
-              <p>
-                <strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a>
-              </p>
-              <p>
-                <strong>Phone:</strong> {user.phone}
-              </p>
-              <p>
-                <strong>Website:</strong> <a href={`http://${user.website}`} target="_blank">{user.website}</a>
-              </p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>No users found.</p>
-      )}
+      {users.length > 0 ? <UserFound users={users} /> : <UserNotFound /> }
     </div>
   );
 }
