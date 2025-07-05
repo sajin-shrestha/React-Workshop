@@ -1,35 +1,64 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import React, { useEffect, useState } from 'react'
+import './App.css'
 
-// function App() {
-//   const [count, setCount] = useState(0)
+const App = () => {
+  const [users, setUsers] = useState([])
 
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data)
+       })
+       .catch((error) => {
+         console.error('Error fetching users:', error)
+       })
+  },[])   // Empty dependency array means this effect runs once after the initial render
 
-// export default App
+  return (
+    <div className="app-container">
+     
+
+      <main className="main-content">
+        <div className="users-grid">
+          {users.map((user) => (
+            <div key={user.id} className="user-card">
+              <div className="user-header">
+                <h3 className="user-name">{user.name}</h3>
+                <span className="user-id">#{user.id}</span>
+              </div>
+              <div className="user-details">
+                <div className="detail-row">
+                  <span className="detail-label">Username:</span>
+                  <span className="detail-value">@{user.username}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">Email:</span>
+                  <span className="detail-value">{user.email}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">Phone:</span>
+                  <span className="detail-value">{user.phone}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">Website:</span>
+                  <span className="detail-value">{user.website}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">Company:</span>
+                  <span className="detail-value">{user.company.name}</span>
+                </div>
+                <div className="detail-row">
+                  <span className="detail-label">City:</span>
+                  <span className="detail-value">{user.address.city}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default App
