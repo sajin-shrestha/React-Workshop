@@ -11,13 +11,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className="user-container">
+    <div className="usercontainer">
       <h2>User List</h2>
-      <ul className="user-list">
+      <ul className="userlist">
         {users.map((user) => (
-          <li key={user.id} className="user-card">
+     <li className="usercard">
             <h3>{user.name}</h3>
-            <p>{user.email}</p>
+         <p>{user.email}</p>
             <p><em>{user.company.name}</em></p>
           </li>
         ))}

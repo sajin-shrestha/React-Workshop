@@ -7,7 +7,7 @@ body {
   padding: 20px;
 }
 
-.user-container {
+.usercontainer {
   max-width: 800px;
   margin: auto;
   padding: 20px;
@@ -18,7 +18,7 @@ h2 {
   color: #333;
 }
 
-.user-list {
+.userlist {
   list-style: none;
   padding: 0;
   display: grid;
@@ -26,7 +26,7 @@ h2 {
   gap: 15px;
 }
 
-.user-card {
+.usercard {
   background-color: #fff;
   padding: 15px 20px;
   border-radius: 12px;
@@ -34,16 +34,16 @@ h2 {
   transition: transform 0.2s;
 }
 
-.user-card:hover {
+.usercard:hover {
   transform: scale(1.03);
 }
 
-.user-card h3 {
+.usercard h3 {
   margin: 0 0 8px;
   color: #007acc;
 }
 
-.user-card p {
+.usercard p {
   margin: 4px 0;
   color: #444;
 }
