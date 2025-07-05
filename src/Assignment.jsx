@@ -63,13 +63,13 @@ function Assignment() {
                 <strong>Username:</strong> {user.username}
               </p>
               <p>
-                <strong>Email:</strong> <a href={`mailto:${user.email}`} style={{ color: '#3498db', textDecoration: 'none' }}>{user.email}</a>
+                <strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a>
               </p>
               <p>
                 <strong>Phone:</strong> {user.phone}
               </p>
               <p>
-                <strong>Website:</strong> <a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer" style={{ color: '#3498db', textDecoration: 'none' }}>{user.website}</a>
+                <strong>Website:</strong> <a href={`http://${user.website}`} target="_blank">{user.website}</a>
               </p>
             </div>
           ))}

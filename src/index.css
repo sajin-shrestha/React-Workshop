@@ -49,3 +49,8 @@ p {
     flex-direction: column;
     justify-content: space-between;
 }
+
+a{
+    color: #3498db;
+    text-decoration: none;
+}
