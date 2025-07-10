@@ -1,185 +1,67 @@
-/* App.css */
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  color: #333;
-}
-
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-}
-
-.app-header {
-  text-align: center;
-  margin-bottom: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.app-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.main-content {
-  width: 100%;
-}
-
-.users-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px 0;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.user-card {
-  display: block;
-  width: 280px;
-  margin: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  text-align: center;
-}
-
-.user-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.user-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.user-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin: 0;
-}
-
-.user-id {
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 15px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.user-details {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.detail-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 0;
-  border-bottom: 1px solid #f5f5f5;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.detail-row:last-child {
-  border-bottom: none;
-}
-
-.detail-label {
-  font-weight: 600;
-  color: #555;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.detail-value {
-  color: #333;
-  font-size: 0.85rem;
-  text-align: center;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .app-container {
-    padding: 15px;
-  }
-  
-  .app-title {
-    font-size: 2rem;
-  }
-  
-  .users-grid {
+   background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
+ height: auto;
+ background-image: url(./assets/deer.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
     justify-content: center;
-    padding: 15px 0;
-  }
-  
-  .user-card {
-    width: 90%;
-    max-width: 350px;
-    margin: 8px;
-    padding: 16px;
-  }
-  
-  .detail-row {
-    flex-direction: column;
     align-items: center;
-    gap: 5px;
-  }
-  
-  .detail-value {
-    text-align: center;
-    max-width: 100%;
-  }
+    color: #333;
 }
 
-@media (max-width: 480px) {
-  .app-title {
-    font-size: 1.5rem;
-  }
+.form-container {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.533);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* margin-left: 600px; */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f5f5da;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
   
-  .user-card {
-    width: 95%;
-    margin: 8px;
-  }
-  
-  .user-header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+}
+
+button:hover {
+  background-color: #18e047;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
