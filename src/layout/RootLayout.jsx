@@ -1,9 +1,28 @@
 import React from 'react'
-
+import { Flex } from 'antd'
+import { Link, Outlet } from 'react-router-dom'
 const RootLayout = () => {
-  return (
-    <div>RootLayout</div>
-  )
+    return (
+        <div>
+
+            <header>
+                <Flex justify="space-between" >
+                    <div style={{fontWeight: 'bold'}}>Rajan PAntha</div>
+                    <Flex gap={8}>
+                        <Link to = "/">Home</Link>
+                        <Link to = "/login">Login</Link>
+                        <Link to = "/signup">Register</Link>
+                     
+                        <div>Logout</div>
+                    </Flex>
+                </Flex>
+            </header>
+            <main>
+                {/* This is where the child routes will be rendered */}
+                <Outlet />
+            </main>
+        </div >
+    )
 }
 
 export default RootLayout

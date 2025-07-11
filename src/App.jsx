@@ -1,9 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, RouterProvider } from 'react-router-dom';
 import Register from './pages/Register';
 import LoginPage from './pages/LoginPage'
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import UserData from './Task1_UserData-into-Card'
+import RootLayout from './layout/RootLayout';
+import router from './routes.jsx';
+import Home from './pages/Home';
+
 
 const App = () => {
  
@@ -17,11 +21,15 @@ const App = () => {
 //     </Router>
 //   );
 
+// return(
+//   <>
+//   <LoginPage />
+//   <Register />
+//   </>
+// )
+
 return(
-  <>
-  <LoginPage />
-  <Register />
-  </>
+  <RouterProvider router={router} />
 )
   
 }
