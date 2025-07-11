@@ -1,10 +1,11 @@
-import LoginPage from "./pages/LoginPage"
-import Register  from "./pages/Register"
+import { RouterProvider } from "react-router-dom"
+import router from "./routes"
 
 
 const App = () => {
-  // return <LoginPage/>
-  return <Register/>
+ 
+  return <RouterProvider router={router}/>
+
   
 }
 
