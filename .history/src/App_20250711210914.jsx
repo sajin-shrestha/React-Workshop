@@ -6,9 +6,7 @@ import Cards1 from './Cards1'
 const App = () => {
  
   return (
-   
     <RouterProvider router={router} />
- 
     // <div>
        // {/* <Cards1 /> */}
     // </div>
