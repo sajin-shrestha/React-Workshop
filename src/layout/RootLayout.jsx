@@ -22,6 +22,7 @@ const RootLayout = () => {
             {token ? (
               <>
                 <Link to="/">Home</Link>
+                <Link to="/complain">Complain</Link>
                 <Button
                   type="link"
                   onClick={handleLogout}
