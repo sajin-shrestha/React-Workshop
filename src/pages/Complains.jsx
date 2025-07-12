@@ -1,6 +1,7 @@
-import { Table, Tag } from 'antd'
+import { Flex, Table, Tag } from 'antd'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import ComplainFormModal from './ComplainFormModal'
 
 const columns = [
   {
@@ -61,11 +62,19 @@ const Complains = () => {
   }, [])
 
   return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      loading={loading}
-    />
+    <>
+      <Flex
+        justify="end"
+        style={{ margin: '16px 24px' }}
+      >
+        <ComplainFormModal />
+      </Flex>
+      <Table
+        columns={columns}
+        dataSource={data}
+        loading={loading}
+      />
+    </>
   )
 }
 
