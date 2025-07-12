@@ -29,7 +29,12 @@ const columns = [
     title: 'Image',
     dataIndex: 'image',
     key: 'image',
-    render: (text) => <a>{text}</a>,
+    render: (text) => (
+      <img
+        src={text}
+        style={{ width: 40, height: 40 }}
+      />
+    ),
   },
 ]
 
@@ -49,7 +54,7 @@ const Complains = () => {
           },
         },
       )
-      setData(res.data.data)
+      setData(res.data.complains)
     } catch (error) {
       console.error(error)
     } finally {
