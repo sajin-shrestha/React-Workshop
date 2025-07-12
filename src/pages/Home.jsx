@@ -1,4 +1,6 @@
 import { Space, Table, Tag } from 'antd'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const columns = [
   {
@@ -8,9 +10,9 @@ const columns = [
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
   },
   {
     title: 'Address',
@@ -18,69 +20,48 @@ const columns = [
     key: 'address',
   },
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green'
-          if (tag === 'loser') {
-            color = 'volcano'
-          }
-          return (
-            <Tag
-              color={color}
-              key={tag}
-            >
-              {tag.toUpperCase()}
-            </Tag>
-          )
-        })}
-      </>
-    ),
+    title: 'Website',
+    dataIndex: 'website_url',
+    key: 'website_url',
+    render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
+    title: 'Image',
+    dataIndex: 'image_url',
+    key: 'image_url',
+    render: (text) => <a>{text}</a>,
   },
 ]
 
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-]
+const Home = () => {
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([])
 
-const Home = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
-  />
-)
+  const handleApiFetch = async () => {
+    setLoading(true)
+    try {
+      const res = await axios.get(
+        'https://egov-backend.vercel.app/api/govt/gov-web-data',
+      )
+      setData(res.data.data)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    handleApiFetch()
+  }, [])
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={data}
+      loading={loading}
+    />
+  )
+}
 
 export default Home
