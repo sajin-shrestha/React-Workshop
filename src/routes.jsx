@@ -3,6 +3,7 @@ import RootLayout from './layout/RootLayout';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import Complains from './pages/Complains';
 
 const router = createBrowserRouter([
                 {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: 'complain',
+                element: <Complains />
             }
         ]
     }
