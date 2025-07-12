@@ -1,0 +1,67 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+   background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
+ height: auto;
+ background-image: url(./assets/deer.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.form-container {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.533);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  /* margin-left: 600px; */
+/* } */
+
+/* form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f5f5da;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+
+button:hover {
+  background-color: #18e047;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+} */

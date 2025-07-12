@@ -1,8 +1,38 @@
-import { RouterProvider } from 'react-router-dom'
-import router from './routes'
+import { BrowserRouter as Router, Routes, Route, Navigate, RouterProvider } from 'react-router-dom';
+import Register from './pages/Register';
+import LoginPage from './pages/LoginPage'
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import UserData from './Task1_UserData-into-Card'
+import RootLayout from './layout/RootLayout';
+import router from './routes.jsx';
+import Home from './pages/Home';
+
 
 const App = () => {
-  return <RouterProvider router={router} />
+ 
+//  return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Navigate to="/login" />} />
+//         <Route path="/login" element={<LoginPage />} />
+//         <Route path="/register" element={<Register />} />
+//       </Routes>
+//     </Router>
+//   );
+
+// return(
+//   <>
+//   <LoginPage />
+//   <Register />
+//   </>
+// )
+
+return(
+  <RouterProvider router={router} />
+)
+  
 }
 
 export default App
+
