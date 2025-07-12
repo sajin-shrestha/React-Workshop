@@ -1,4 +1,6 @@
 import { Space, Table, Tag } from 'antd'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const columns = [
   {
@@ -8,9 +10,9 @@ const columns = [
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
   },
   {
     title: 'Address',
@@ -18,14 +20,14 @@ const columns = [
     key: 'address',
   },
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
+    title: 'Website',
+    key: 'Website_url',
+    dataIndex: 'Website_url',
+    render: (_, { Website_url }) => (
       <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green'
-          if (tag === 'loser') {
+        {Website_url.map((url) => {
+          let color = url.length > 5 ? 'geekblue' : 'green'
+          if (url === 'loser') {
             color = 'volcano'
           }
           return (
@@ -76,11 +78,34 @@ const data = [
   },
 ]
 
-const Home = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
-  />
-)
+const Home = () => {
+    const [loading, setLoading] = useState(false)
+    const [data, setData] = useState([])
+
+    const handleApiFetch = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.get('https://egov-backend.vercel.app/api/govt/gov-web-data',)
+            setData(response.data.data)
+            message.success("Data fetched successfully")
+        } catch (error) {
+            message.error("Failed to fetch data")
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleApiFetch()
+    }, [])
+
+    return (
+        <Table
+            columns={columns}
+            dataSource={data}
+            loading={loading}
+        />
+    )
+}
 
 export default Home
