@@ -7,7 +7,7 @@ const RootLayout = () => {
       <header>
         <Flex justify="space-between">
           {/* left side text  */}
-          <div style={{ fontWeight: 'bold' }}>Sajin Shrestha</div>
+          <div style={{ fontWeight: 'bold' }}>Krijan Machamasi</div>
 
           {/* right side text */}
           <Flex gap={8}>
