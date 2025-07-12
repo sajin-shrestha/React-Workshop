@@ -1,8 +1,15 @@
 import React from 'react'
-import { Flex } from 'antd'
-import { Link, Outlet} from 'react-router-dom'
+import { Flex , Button} from 'antd'
+import { Link, Outlet, useNavigate} from 'react-router-dom'
 
 const RootLayout = () => {
+  const token= localStorage.getItem('accessToken')
+  const navigate=useNavigate()
+
+  const handleLogout = () =>{
+    localStorage.clear()
+    navigate('/login')
+  }
   return (
     <div>
         <header>
@@ -10,11 +17,19 @@ const RootLayout = () => {
             {/*left side text */}
             <div style={{fontWeight:'bold'}}>Sanju Nagarkoti</div>
             <Flex gap={8}>
-                {/*right side text */}
-                <Link to="/">Home</Link>
+              {
+                token ? (<>
+                 <Link to="/">Home</Link>
+                 <Button
+                  type='link'
+                  onClick={handleLogout}
+                 > Logout</Button>
+                </>):(
+                  <>
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Sign Up</Link>
-                <Link >Logout</Link>
+               </>)
+}
                 </Flex>
         </Flex>
         </header>

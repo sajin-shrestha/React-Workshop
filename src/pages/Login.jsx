@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card ,Form, Input, Button, message, notification} from 'antd'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , Link} from 'react-router-dom'
 
 const Login = () => {
   
@@ -45,6 +45,8 @@ const Login = () => {
             <Button type='primary' htmlType='submit'>Login</Button>
         </Form.Item>
          </Form>
+
+         <h4>Do you want to signup? <Link to="/signup">SignUp</Link></h4>
     </Card>
    
   )
