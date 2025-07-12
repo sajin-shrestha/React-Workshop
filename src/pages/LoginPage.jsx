@@ -1,7 +1,7 @@
 import { Card, Form, message } from "antd";
 import { Input, Button } from "antd";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
@@ -49,6 +49,10 @@ const LoginPage = () => {
                 </Form.Item>
 
             </Form>
+
+              <h4>
+                Do you want to signup? <Link to="/signup">Sign Up</Link>
+            </h4>
         </Card>
     )
 }
