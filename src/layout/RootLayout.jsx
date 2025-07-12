@@ -16,10 +16,12 @@ const RootLayout = () => {
         <Flex justify="space-between">
             {/*left side text */}
             <div style={{fontWeight:'bold'}}>Sanju Nagarkoti</div>
+            
             <Flex gap={8}>
               {
                 token ? (<>
                  <Link to="/">Home</Link>
+                 <Link to="/complain">Complain</Link>
                  <Button
                   type='link'
                   onClick={handleLogout}
@@ -28,8 +30,7 @@ const RootLayout = () => {
                   <>
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Sign Up</Link>
-               </>)
-}
+               </>)}
                 </Flex>
         </Flex>
         </header>

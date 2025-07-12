@@ -2,10 +2,12 @@
 
 import { createBrowserRouter,Navigate } from "react-router-dom";
 import RootLayout  from "./layout/RootLayout";
-// import { SignUp } from "./pages/SignUp";    
-import { Home } from "./pages/Home";   
 import Login from "./pages/Login"; 
 import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
+import Complains from "./pages/Complains";
+
+
 // for page switching
 const router= createBrowserRouter([
       {
@@ -23,6 +25,10 @@ const router= createBrowserRouter([
         {
            index: true,
            element: <Home/>
+        },
+        {
+            path:'complain',
+            element:<Complains/>
         },
     ]
 
