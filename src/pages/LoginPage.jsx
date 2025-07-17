@@ -18,6 +18,21 @@ const LoginPage = () => {
             const { accessToken } = res.data;
             localStorage.setItem('accessToken', accessToken);
 
+            // Fetch user profile to get username
+            try {
+              const profileRes = await axios.get('https://egov-backend.vercel.app/api/users/profile', {
+                headers: {
+                  Authorization: `Bearer ${accessToken}`,
+                },
+              });
+              if (profileRes.data && profileRes.data.user && profileRes.data.user.username) {
+                localStorage.setItem('username', profileRes.data.user.username);
+              }
+            } catch (profileErr) {
+              // Optionally handle profile fetch error
+              localStorage.removeItem('username');
+            }
+
             navigate('/');
             message.success("Login Successful");
         } 

@@ -4,6 +4,7 @@ import { Button } from 'antd';
 
 const RootLayout = () => {
     const token = localStorage.getItem('accessToken')
+    const username = localStorage.getItem('username')
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -14,16 +15,16 @@ const RootLayout = () => {
     return (
         <div>
             <header>
-                <Flex justify='space-between'>
+                <Flex justify='space-between' align='center'>
                     {/* // Left side text */}
-                    <div style={{ fontWeight: 'bold' }}>Some one</div>
+                    <div style={{ fontWeight: 'bold' }}>{username ? username : 'User'}</div>
 
                     <Flex gap={ 8 }>
                         {token ? (
                                 <>
                                 <Link to = "/">Home</Link>
                                 <Link to = "/complain">Complains</Link>
-                                <Button type = "link" onClick={handleLogout}>Logout</Button>
+                                <Button type = "primary" style={{marginLeft: 8}} onClick={handleLogout}>Logout</Button>
                                 </>
                             ):(
                                 <>

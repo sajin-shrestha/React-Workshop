@@ -1,0 +1,104 @@
+body {
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  min-height: 100vh;
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 16px 32px;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 24px;
+}
+
+header a {
+  color: #ff7e5f;
+  font-weight: 500;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+header a:hover {
+  color: #feb47b;
+}
+
+.ant-table-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin: 0 24px 32px 24px;
+}
+
+.ant-table-thead > tr > th {
+  background: #ffecd2 ;
+  color: #ff7e5f;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.ant-table-tbody > tr > td {
+  font-size: 1rem;
+  padding: 12px 8px;
+}
+
+.ant-btn-primary {
+  background: #ff7e5f ;
+  border: none ;
+  font-weight: 600;
+  border-radius: 8px ;
+  box-shadow: 0 2px 8px rgba(255, 126, 95, 0.08);
+  transition: background 0.2s;
+}
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background: #feb47b ;
+}
+
+.ant-modal-content {
+  border-radius: 16px ;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.ant-form-item-label > label {
+  color: #ff7e5f ;
+  font-weight: 500;
+}
+
+.ant-input,
+.ant-input-password,
+.ant-select-selector {
+  border-radius: 8px ;
+  border: 1px solid #ffecd2 ;
+  background: #fffaf6 ;
+}
+
+.ant-upload-list-picture-card-container {
+  border-radius: 8px;
+}
+
+img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+main {
+  min-height: 70vh;
+  padding-bottom: 32px;
+}
+
+@media (max-width: 600px) {
+  .ant-table-wrapper {
+    padding: 8px;
+    margin: 0 4px 16px 4px;
+  }
+  header {
+    padding: 8px 8px;
+  }
+  main {
+    padding-bottom: 16px;
+  }
+}
