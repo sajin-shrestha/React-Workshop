@@ -1,34 +1,50 @@
-import { Button, Flex } from 'antd'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { Button } from 'antd';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import './RootLayout.css';
 
 const RootLayout = () => {
-  const token = localStorage.getItem('accessToken')
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    try {
+      const userString = localStorage.getItem('user');
+      if (userString) {
+        const parsed = JSON.parse(userString);
+        const userData = parsed?.user || parsed;
+
+        if (userData?.username) {
+          setUsername(userData.username);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to parse user data:', error);
+    }
+  }, []);
+
+  const token = localStorage.getItem('accessToken');
 
   const handleLogout = () => {
-    localStorage.clear()
-    navigate('/login')
-  }
+    localStorage.clear();
+    navigate('/login');
+  };
 
   return (
     <div>
-      <header>
-        <Flex justify="space-between">
-          {/* left side text  */}
-          <div style={{ fontWeight: 'bold' }}>Sajin Shrestha</div>
+      <header className="navbar">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* Left Side */}
+          <div className="nav-left">{token && username ? username : 'Guest'}</div>
 
-          {/* right side text */}
-          <Flex gap={8}>
+          {/* Right Side */}
+          <div className="nav-links">
             {token ? (
               <>
                 <Link to="/">Home</Link>
                 <Link to="/Complains">Complains</Link>
-                <Button
-                  type="link"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </Button>
+                <Link to="/Profile">Profile</Link>
+                <button onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>
@@ -36,16 +52,15 @@ const RootLayout = () => {
                 <Link to="/signup">Sign Up</Link>
               </>
             )}
-          </Flex>
-        </Flex>
+          </div>
+        </div>
       </header>
 
       <main>
-        {/* for rendering other react pages defined inside root layout */}
         <Outlet />
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
