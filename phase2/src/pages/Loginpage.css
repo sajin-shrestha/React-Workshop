@@ -1,0 +1,94 @@
+/* Loginpage.css - Dark Mode Version */
+
+.login-page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+  width: 380px;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: #1e293b;
+  color: #f1f5f9;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.login-card:hover {
+  transform: translateY(-8px);
+}
+
+.ant-card-head-title {
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  margin-bottom: 16px !important;
+}
+
+.ant-form-item-label > label {
+  font-weight: 600;
+  color: #cbd5e1 !important;
+}
+
+.ant-input,
+.ant-input-password input {
+  border-radius: 8px;
+  height: 42px;
+  font-size: 16px;
+  background-color: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  transition: box-shadow 0.3s ease;
+}
+
+.ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: #94a3b8;
+}
+
+.ant-input:focus,
+.ant-input-focused,
+.ant-input-password input:focus {
+  box-shadow: 0 0 6px #3b82f6;
+  border-color: #3b82f6;
+}
+
+.ant-btn-primary {
+  border-radius: 8px;
+  height: 42px;
+  font-weight: 700;
+  font-size: 16px;
+  background: #3b82f6;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background: #2563eb;
+}
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.signup-text a {
+  color: #60a5fa;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}

@@ -1,9 +1,9 @@
 import { Button, Card, Form, Input, message, notification } from 'antd'
 import axios from 'axios'
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [loading, setLoading] = useState(false) // to track api calling process
   const navigate = useNavigate()
 
@@ -12,14 +12,13 @@ const LoginPage = () => {
 
     try {
       const res = await axios.post(
-        'https://egov-backend.vercel.app/api/users/login',
+        'https://egov-backend.vercel.app/api/users/register',
         values,
       )
 
-      const { accessToken } = res.data
-      localStorage.setItem('accessToken', accessToken)
+      console.log(res)
 
-      navigate('/')
+      navigate('/login')
 
       message.success('Login Successful')
       notification.success('Login successful')
@@ -33,8 +32,16 @@ const LoginPage = () => {
   }
 
   return (
-    <Card title="Login Page">
+    <Card title="Signup Page">
       <Form onFinish={onFinish}>
+        {/* username  */}
+        <Form.Item
+          label="Username"
+          name="username"
+          required
+        >
+          <Input placeholder="username" />
+        </Form.Item>
         {/* email  */}
         <Form.Item
           label="Email"
@@ -58,16 +65,12 @@ const LoginPage = () => {
             htmlType="submit"
             loading={loading}
           >
-            Login
+            Sign up
           </Button>
         </Form.Item>
       </Form>
-
-      <h4>
-        Do you want to signup? <Link to="/signup">Signup</Link>
-      </h4>
     </Card>
   )
 }
 
-export default LoginPage
+export default SignupPage

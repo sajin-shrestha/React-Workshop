@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ComplainFormModal from './ComplainFormModal';
 
+
 const Complains = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -40,7 +41,7 @@ const Complains = () => {
         },
       );
       message.success('Complain deleted successfully');
-      handleApiFetch(); // refresh list
+      handleApiFetch(); // refresh list immediately after delete
     } catch (error) {
       console.error(error);
       message.error('Failed to delete complain');
@@ -102,7 +103,7 @@ const Complains = () => {
   return (
     <>
       <Flex justify="end" style={{ margin: '16px 24px' }}>
-        <ComplainFormModal />
+        <ComplainFormModal refreshComplains={handleApiFetch} />
       </Flex>
       <Table columns={columns} dataSource={data} loading={loading} rowKey="_id" />
     </>

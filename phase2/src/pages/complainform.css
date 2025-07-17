@@ -1,0 +1,13 @@
+/* Make input text color black */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-password,
+.ant-input-textarea {
+  color: #000 !important;
+  background-color: #fff !important; /* optional: make sure background is white */
+}
+
+/* For the Upload description input box */
+.ant-upload-list-item-name {
+  color: #000 !important;
+}

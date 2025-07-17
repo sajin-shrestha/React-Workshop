@@ -1,11 +1,11 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import RootLayout from './layout/RootLayout'
-import Home from './pages/Home'
+import Home from './pages/profile'
 import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
+import SignupPage from './pages/Register'
 import Complains from './pages/Complains'
+import ErrorPage from './pages/ErrorPage'  // import it
 
-// for page switching
 const router = createBrowserRouter([
   {
     path: '/login',
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,  // add this line here
     children: [
       {
         index: true,
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         element: <Complains />,
       },
     ],
+  },
+  // Optional: fallback for unmatched routes at root level
+  {
+    path: '*',
+    element: <Navigate to="/" />,
   },
 ])
 
