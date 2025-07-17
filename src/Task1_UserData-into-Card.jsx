@@ -11,7 +11,7 @@ const UserData = () => {
         setUsers(data)
        })
        .catch((error) => {
-         console.error('Error fetching users:', error)
+         // Handle error silently
        })
   },[])   // Empty dependency array means this effect runs once after the initial render
 

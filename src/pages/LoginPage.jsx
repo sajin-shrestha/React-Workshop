@@ -1,111 +1,212 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Form, Input, Button, message } from 'antd';
+import { Card, Form, Input, Button, message, notification, Typography, Divider, Space, Checkbox } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { 
+  UserOutlined, 
+  LockOutlined, 
+  LoginOutlined, 
+  EyeInvisibleOutlined, 
+  EyeTwoTone,
+  SafetyCertificateOutlined,
+  ThunderboltOutlined
+} from '@ant-design/icons';
 
-
-
-// const LoginPage = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   return (
-    
-//     <div className="form-container">
-//       <h2>Login</h2>
-//       <form>
-//         <input 
-//           type="email" 
-//           placeholder="Email" 
-//           value={email} 
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-//         <input 
-//           type="password" 
-//           placeholder="Password" 
-//           value={password} 
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//         <button type="submit">Login</button>
-//         <p>Don't have an account?</p>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default LoginPage
-
+const { Title, Text } = Typography;
 
 const LoginPage = () => {
-const [loading, setLoading] = useState(false); //to track api loading
-const navigate = useNavigate(); // to navigate after login
-const onFinish = async(values) => {
-  setLoading(true);
-
-  try{
-    const res = await axios.post('https://egov-backend.vercel.app/api/users/login', values);
-    // Handle successful login, e.g., store token, redirect, etc.
+  const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
+  const navigate = useNavigate();
+  const [rememberMe, setRememberMe] = useState(false);
   
-  const {accessToken} = res.data.accessToken;
-  localStorage.setItem('accessToken', accessToken);
+  // Check if user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      navigate('/');
+    }
+  }, [navigate]);
 
-  navigate('/'); // Redirect to home page after successful login
+  const onFinish = async(values) => {
+    setLoading(true);
 
-  message.success('Login successful');
-  } catch (error) {
-    console.error('error');
-    message.error('Login failed. Please try again.');
-  } finally {
-    setLoading(false); // Reset loading state
-  }
-  
-}
+    try{
+      const res = await axios.post(
+        'https://egov-backend.vercel.app/api/users/login', 
+        values
+      );
+      
+      // Handle successful login
+      const {accessToken} = res.data;
+      localStorage.setItem('accessToken', accessToken);
+      
+      // Save credentials if remember me is checked
+      if (rememberMe) {
+        localStorage.setItem('rememberedEmail', values.email);
+      }
+
+      navigate('/');
+
+      message.success('Login successful');
+      notification.success({
+        message: 'Welcome Back!',
+        description: 'You have been logged in successfully. Redirecting to dashboard...',
+        placement: 'topRight',
+        duration: 3,
+        icon: <ThunderboltOutlined style={{ color: '#52c41a' }} />
+      });
+    } catch (err) {
+      // Enhanced error handling
+      let errorMessage = 'Login failed. Please check your credentials and try again.';
+      if (err.response?.status === 401) {
+        errorMessage = 'Invalid email or password. Please try again.';
+      } else if (err.response?.status === 500) {
+        errorMessage = 'Server error. Please try again later.';
+      }
+      
+      message.error(errorMessage);
+      notification.error({
+        message: 'Login Failed',
+        description: errorMessage,
+        placement: 'topRight',
+        duration: 4
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load remembered email on component mount
+  useEffect(() => {
+    const rememberedEmail = localStorage.getItem('rememberedEmail');
+    if (rememberedEmail) {
+      form.setFieldsValue({ email: rememberedEmail });
+      setRememberMe(true);
+    }
+  }, [form]);
+
   return (
-    
-    <Card title="Login" >
-<Form onFinish={onFinish}>
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <SafetyCertificateOutlined style={{ fontSize: '3rem', marginBottom: '1rem' }} />
+          <Title level={2}>Welcome Back</Title>
+          <Text>Sign in to access your account</Text>
+        </div>
+        
+        <div className="auth-form">
+          <Form 
+            form={form}
+            onFinish={onFinish}
+            layout="vertical"
+            size="large"
+            autoComplete="off"
+          >
+            <Form.Item
+              label="Email Address"
+              name="email"
+              rules={[
+                { 
+                  required: true, 
+                  message: 'Please enter your email address' 
+                },
+                {
+                  type: 'email',
+                  message: 'Please enter a valid email address'
+                }
+              ]}
+              hasFeedback
+            >
+              <Input 
+                prefix={<UserOutlined />} 
+                placeholder="Enter your email"
+                autoComplete="email"
+              />
+            </Form.Item>
 
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { 
+                  required: true, 
+                  message: 'Please enter your password' 
+                },
+                {
+                  min: 6,
+                  message: 'Password must be at least 6 characters'
+                }
+              ]}
+              hasFeedback
+            > 
+              <Input.Password 
+                prefix={<LockOutlined />}
+                placeholder="Enter your password"
+                iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                autoComplete="current-password"
+              />
+            </Form.Item>
 
-  {/* email */}
-<Form.Item
- label="Email"
- name="email"
- required>
-  <Input placeholder=""></Input>
-  </Form.Item>
+            <Form.Item>
+              <Space split={<Divider type="vertical" />} style={{ width: '100%', justifyContent: 'space-between' }}>
+                <Checkbox 
+                  checked={rememberMe} 
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                >
+                  Remember me
+                </Checkbox>
+                <Link to="/forgot-password" style={{ color: 'var(--primary-color)' }}>
+                  Forgot password?
+                </Link>
+              </Space>
+            </Form.Item>
 
+            <Form.Item>
+              <Button 
+                type="primary" 
+                htmlType="submit" 
+                loading={loading}
+                icon={<LoginOutlined />}
+                block
+                size="large"
+              >
+                {loading ? 'Signing in...' : 'Sign In'}
+              </Button>
+            </Form.Item>
 
-  {/* password */}
-  <Form.Item
-  label="Password"
-  name="password"
-  required> 
-  <Input.Password placeholder=""></Input.Password>
-  </Form.Item>
+            <Divider>
+              <Text type="secondary">or</Text>
+            </Divider>
 
-
-  {/* submit button */}
-  <Form.Item>
-    <Button type="primary" htmlType="submit" loading={loading}>
-      Login
-    </Button>
-  </Form.Item>
-
-
-
-
-
-
-</Form>
-
-
-
-
-    </Card>
-   
+            <Form.Item>
+              <Button 
+                block
+                size="large"
+                style={{ 
+                  border: '2px solid var(--border-color)',
+                  background: 'transparent',
+                  color: 'var(--text-primary)'
+                }}
+                onClick={() => navigate('/signup')}
+              >
+                Create New Account
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+        
+        <div className="auth-footer">
+          <Text>Don't have an account?</Text>
+          <Link to="/signup" style={{ marginLeft: '8px', fontWeight: '600' }}>
+            Sign up for free
+          </Link>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
-export default LoginPage
+export default LoginPage;
 
