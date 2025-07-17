@@ -1,4 +1,4 @@
-import { Flex, Table, Tag } from 'antd'
+import { Flex, Table, Tag, Button} from 'antd'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import ComplainFormModal from './ComplainFormModal'
@@ -34,6 +34,33 @@ const columns = [
         src={text}
         style={{ width: 40, height: 40 }}
       />
+    ),
+  },
+  {
+    title: 'Actions',
+    dataIndex: 'delete',
+    key: 'delete',
+    render: (text, record) => (
+      <Button type="primary" danger
+        color="error"
+        onClick={() => {
+          axios
+            .delete(
+              `https://egov-backend.vercel.app/api/file/complain/${record._id}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                },
+              },
+            )
+            .then(() => {
+              window.location.reload()
+            })
+            .catch((error) => console.error(error))
+        }}
+      >
+        Delete
+      </Button>
     ),
   },
 ]
