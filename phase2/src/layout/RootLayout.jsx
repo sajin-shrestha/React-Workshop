@@ -1,3 +1,4 @@
+// src/layouts/RootLayout.jsx
 import { useState, useEffect } from 'react';
 import { Layout, Menu, Button } from 'antd';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
@@ -66,10 +67,17 @@ const RootLayout = () => {
             theme="dark"
             mode="horizontal"
             selectable={false}
-            style={{ backgroundColor: 'transparent', flex: 1, justifyContent: 'flex-end' }}
+            style={{
+              backgroundColor: 'transparent',
+              flex: 1,
+              justifyContent: 'flex-end',
+            }}
           >
+            <Menu.Item key="home" icon={<HomeOutlined />}>
+              <Link to="/">Home</Link>
+            </Menu.Item>
             <Menu.Item key="profile" icon={<UserOutlined />}>
-              <Link to="/">Profile</Link>
+              <Link to="/profile">Profile</Link>
             </Menu.Item>
             <Menu.Item key="complain" icon={<FileTextOutlined />}>
               <Link to="/complain">Complain</Link>
@@ -107,7 +115,9 @@ const RootLayout = () => {
             <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
               Welcome to Phase 2 Project
             </h1>
-            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.8 }}>
+            <p
+              style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.8 }}
+            >
               Please login or signup to continue
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
@@ -117,7 +127,11 @@ const RootLayout = () => {
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button type="default" size="large" style={{ backgroundColor: '#555', color: '#fff' }}>
+                <Button
+                  type="default"
+                  size="large"
+                  style={{ backgroundColor: '#555', color: '#fff' }}
+                >
                   Signup
                 </Button>
               </Link>
@@ -130,3 +144,6 @@ const RootLayout = () => {
 };
 
 export default RootLayout;
+
+// Importing RootLayout in the main file (e.g., index.js or App.js)
+// import RootLayout from "./layouts/RootLayout";

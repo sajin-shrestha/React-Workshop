@@ -1,28 +1,24 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import RootLayout from './layout/RootLayout'
-import Home from './pages/profile'
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/Register'
-import Complains from './pages/Complains'
-import ErrorPage from './pages/ErrorPage'  // import it
+// src/routes.jsx
+import { createBrowserRouter } from 'react-router-dom';
+import RootLayout from './layout/RootLayout';
+import Profile from './pages/Profile';
+import Complains from './pages/Complains';
+import Home from './pages/Home';
+import LoginPage from './pages/LoginPage';
+import Register from './pages/Register';
 
 const router = createBrowserRouter([
   {
-    path: '/login',
-    element: <LoginPage />,
-  },
-  {
-    path: '/signup',
-    element: <SignupPage />,
-  },
-  {
     path: '/',
     element: <RootLayout />,
-    errorElement: <ErrorPage />,  // add this line here
     children: [
       {
-        index: true,
-        element: <Home />,
+        index: true,           // ✅ shown at "/"
+        element: <Home />,     // ✅ Home is now default
+      },
+      {
+        path: 'profile',       // ✅ shown at "/profile"
+        element: <Profile />,
       },
       {
         path: 'complain',
@@ -30,11 +26,14 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // Optional: fallback for unmatched routes at root level
   {
-    path: '*',
-    element: <Navigate to="/" />,
+    path: '/login',
+    element: <LoginPage />,
   },
-])
+  {
+    path: '/signup',
+    element: <Register />,
+  },
+]);
 
-export default router
+export default router;
