@@ -69,5 +69,14 @@ const LoginPage = () => {
     </Card>
   )
 }
+<<<<<<< HEAD
+=======
+<div className="login-container">
+  <Card title="Login Page">
+    <Form>...</Form>
+  </Card>
+</div>
+
+>>>>>>> 01419f2 (reactproject)
 
 export default LoginPage

@@ -63,5 +63,9 @@ const Home = () => {
     />
   )
 }
+<<<<<<< HEAD
 <p>hello this is homepage</p>
+=======
+
+>>>>>>> 01419f2 (reactproject)
 export default Home

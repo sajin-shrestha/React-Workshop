@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 /* Reset and Base Setup */
+=======
+/* Reset and base styles */
+>>>>>>> 01419f2 (reactproject)
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 :root {
   --bg-color: #f4f6fc;
   --primary-color: #4a90e2;
@@ -64,10 +69,93 @@ p {
   line-height: 1.7;
   color: var(--text-color);
   margin-bottom: 1.2rem;
+=======
+body {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: rgb(112, 109, 105);
+  color: #22223b;
+  min-height: 100vh;
+  transition: background 0.3s;
+ 
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef2ff;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.07);
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 24px;
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #22223b;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 24px;
+  background: #fff;
+  padding: 8px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.10);
+}
+
+.navbar-links a {
+  color: #2d27a0;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s, background 0.2s;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+  background: #6366f1;
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(60, 72, 107, 0.12);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #3a3a5d;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+/* Card */
+.card {
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.08);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.16);
+>>>>>>> 01419f2 (reactproject)
 }
 
 /* Buttons */
 button {
+<<<<<<< HEAD
   background: var(--primary-color);
   color: #fff;
   border: none;
@@ -88,3 +176,58 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+=======
+  background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.15);
+  transition: background 0.2s, transform 0.2s;
+}
+button:hover {
+  background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Forms */
+input, textarea, select {
+  width: 100%;
+  padding: 10px 14px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f3f4f6;
+  transition: border 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e0e7ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 8px;
+}
+
+
+>>>>>>> 01419f2 (reactproject)
