@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Typography, Spin, Alert } from 'antd';
- import './ProfilePage.css'; // Make sure this path is correct
+ import './ProfilePage.css'; 
 import axios from 'axios';
 
 const { Title, Text } = Typography;
@@ -22,9 +22,9 @@ const ProfilePage = () => {
           return;
         }
 
-        setAccessToken(token); // Save it to state for UI display
+        setAccessToken(token); 
 
-        // Fetch the profile using the access token
+        
         const response = await axios.get(
           'https://egov-backend.vercel.app/api/users/profile',
           {

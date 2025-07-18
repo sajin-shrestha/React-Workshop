@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  const [loading, setLoading] = useState(false); // Track loading state
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
  const onFinish = async (values) => {
@@ -18,11 +18,11 @@ const LoginPage = () => {
 
     const { accessToken } = res.data;
 
-    // Store token safely
+    
     if (accessToken && typeof accessToken === 'string') {
       localStorage.setItem('accessToken', accessToken);
 
-      // Fetch user profile using accessToken
+      
       const profileRes = await axios.get(
         'https://egov-backend.vercel.app/api/users/profile',
         {

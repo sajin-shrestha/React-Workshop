@@ -26,7 +26,7 @@ const RootLayout = () => {
   const token = localStorage.getItem('accessToken');
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.clear();``
     navigate('/login');
   };
 
