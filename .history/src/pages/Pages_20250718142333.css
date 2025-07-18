@@ -1,0 +1,48 @@
+#Home, #Complains, #Profile {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 25px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#SignUpPage, #LoginPage {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 80px;
+    padding: 20px 110px;
+    align-items: center;
+    /* background-color: rgb(243, 192, 124); */
+background-image: url('logdb.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+    border-radius: 25px;
+        /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+}
+.ant-table-thead > tr > th {
+    background-color: #1e3a63;
+    color: white;
+    font-weight: bold;
+}
+.description {
+    color: #1e3a63;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+    /* background-color: tomato; */
+}
+.login-page {
+  background-color: #f0f2f5;
+  padding: 20px;
+  min-height: 80vh; /* Use min-height for flexibility */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}

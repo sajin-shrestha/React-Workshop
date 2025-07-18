@@ -1,0 +1,61 @@
+#Home, #Complains, #Profile {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 25px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#SignUpPage, #LoginPage {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 80px;
+    padding: 20px 110px 20px 0;
+    align-items: center;
+    /* background-color: rgb(243, 192, 124); */
+background-image: url('logdb.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+    border-radius: 25px;
+        /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+}
+.ant-table-thead > tr > th {
+    background-color: #1e3a63;
+    color: white;
+    font-weight: bold;
+}
+.description {
+    color: #1e3a63;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+    /* background-color: tomato; */
+}
+
+.login-title {
+  margin-bottom: 10px;
+}
+.login-card{
+     margin: 0 auto;
+  text-align: center;
+  color: #1e3a63;
+  background-color: #44c2b8b7;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: -2px 5px 10px 5px  rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 800px){
+    #LoginPage{
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+
+    }
+}

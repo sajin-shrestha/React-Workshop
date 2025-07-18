@@ -1,0 +1,41 @@
+#Home, #Complains, #Profile {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 25px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#SignUpPage{
+    display: flex;
+    flex-direction: row;
+    margin: 40px 80px;
+    padding: 20px 110px;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 25px;
+        /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+}
+.ant-table-thead > tr > th {
+    background-color: #1e3a63;
+    color: white;
+    font-weight: bold;
+}
+#c1{
+    background-color: #f0f0f0;
+    padding: 20px 20px 0 120px;
+    border-radius: 50%;
+}
+.description {
+    color: #1e3a63;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    /* border-top-right-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+    background-color: tomato;
+}
