@@ -1,7 +1,7 @@
 import { Button, Card, Form, Input, message, notification } from 'antd'
 import axios from 'axios'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false) // to track api calling process
@@ -62,6 +62,10 @@ const LoginPage = () => {
           </Button>
         </Form.Item>
       </Form>
+
+      <h4>
+        Do you want to signup? <Link to="/signup">Signup</Link>
+      </h4>
     </Card>
   )
 }

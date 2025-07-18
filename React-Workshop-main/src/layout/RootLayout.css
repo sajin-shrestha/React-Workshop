@@ -1,0 +1,94 @@
+/* Base container */
+.root-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+.header {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 20px 40px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Brand title */
+.left-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Navigation styles */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Link styling */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover underline effect */
+.nav-links a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: white;
+  width: 0%;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Logout button */
+.logout-btn {
+  color: #fff !important;
+  border: 1px solid white;
+  padding: 4px 16px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main content area */
+.main-content {
+  padding: 40px;
+  flex-grow: 1;
+  background: #fff;
+  box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.03);
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
